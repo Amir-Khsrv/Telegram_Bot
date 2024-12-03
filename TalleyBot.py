@@ -107,19 +107,12 @@ def main() -> None:
     )
 
     application.add_handler(conv_handler)
-    application.run_webhook(
-    listen="0.0.0.0",
-    port=int(os.environ.get("PORT", 8443)),  # Render exposes the PORT variable
-    url_path="7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s",
-    webhook_url=f"https://<https://telegram-med-bot.onrender.com>.onrender.com/7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s",  # Replace with your Render service URL
-)
 
+    # Use polling instead of webhook
+    application.run_polling()
 
 if __name__ == '__main__':
     main()
-
-
-
 
 from flask import Flask
 
@@ -132,4 +125,3 @@ def home():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))  # Default to port 5000 if PORT is not set
     app.run(host='0.0.0.0', port=port)
-
