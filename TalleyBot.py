@@ -95,7 +95,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 def main() -> None:
-    application = Application.builder().token("7248777740:AAEMey0DxOSOYzXUqGtP_XxqE0VSvggxAkY").build()
+    application = Application.builder().token("7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s").build()
 
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
@@ -107,7 +107,28 @@ def main() -> None:
     )
 
     application.add_handler(conv_handler)
-    application.run_polling()
+    application.run_webhook(
+    listen="0.0.0.0",
+    port=int(os.environ.get("PORT", 8443)),  # Render exposes the PORT variable
+    url_path="7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s",
+    webhook_url=f"https://<https://telegram-med-bot.onrender.com>.onrender.com/7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s",  # Replace with your Render service URL
+)
+
 
 if __name__ == '__main__':
     main()
+
+
+
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bot is running!"
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))  # Default to port 5000 if PORT is not set
+    app.run(host='0.0.0.0', port=port)
