@@ -95,7 +95,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 def main() -> None:
-    application = Application.builder().token("7248777740:AAEMey0DxOSOYzXUqGtP_XxqE0VSvggxAkY").build()
+    application = Application.builder().token("7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s").build()
 
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
@@ -114,7 +114,7 @@ if __name__ == '__main__':
 
 
 
-import os
+
 from flask import Flask
 
 app = Flask(__name__)
