@@ -131,8 +131,5 @@ def home():
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))  # Default to port 5000 if PORT is not set
-<<<<<<< HEAD
     app.run(host='0.0.0.0', port=port)
-=======
-    app.run(host='0.0.0.0', port=port)
->>>>>>> acc1f5b00726cbbf1b49ad845ae7b0c6fb2594f9
+
