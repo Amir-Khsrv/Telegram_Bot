@@ -44,7 +44,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 def main():
-    bot_token = os.getenv('TELEGRAM_BOT_TOKEN')  # Use environment variable for the bot token
+    bot_token = 7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s  # Use environment variable for the bot token
     application = Application.builder().token(bot_token).build()
 
     conv_handler = ConversationHandler(
