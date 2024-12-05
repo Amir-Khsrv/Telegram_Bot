@@ -44,7 +44,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 def main():
-    bot_token = "7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s"  # Use environment variable for the bot token
+    bot_token ='7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s'  # Retrieve bot token from environment variable
     application = Application.builder().token(bot_token).build()
 
     conv_handler = ConversationHandler(
@@ -58,8 +58,8 @@ def main():
 
     application.add_handler(conv_handler)
 
-    port = os.getenv('PORT', 5000)  # Use the PORT environment variable, default to 5000
-    application.run_polling(allowed_updates=Update.ALL_TYPES, port=int(port))
+    application.run_polling(allowed_updates=Update.ALL_TYPES)  # No need for the 'port' argument
+
 
 if __name__ == '__main__':
     main()
