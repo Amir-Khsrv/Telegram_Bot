@@ -96,7 +96,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
 def main() -> None:
     # Initialize the Telegram bot application
-    application = Application.builder().token("YOUR_BOT_TOKEN").build()
+    application = Application.builder().token("7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s").build()
 
     # Define the conversation handler
     conv_handler = ConversationHandler(
