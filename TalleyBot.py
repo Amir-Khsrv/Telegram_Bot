@@ -1,5 +1,5 @@
 import os
-from telegram import Update, ReplyKeyboardMarkup
+from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ConversationHandler, ContextTypes
 import json
 
@@ -44,7 +44,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 def main():
-    bot_token ='7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s'  # Retrieve bot token from environment variable
+    bot_token ='7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s'  # Retrieve bot token from environment variables
     application = Application.builder().token(bot_token).build()
 
     conv_handler = ConversationHandler(
@@ -58,8 +58,8 @@ def main():
 
     application.add_handler(conv_handler)
 
-    application.run_polling(allowed_updates=Update.ALL_TYPES)  # No need for the 'port' argument
-
+    # Run polling without specifying a port, Render will manage it
+    application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 if __name__ == '__main__':
     main()
