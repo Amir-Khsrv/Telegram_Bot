@@ -112,7 +112,7 @@ def main() -> None:
 
 
     # Use polling instead of webhook
- application.run_polling()
+application.run_polling()
 
 if __name__ == '__main__':
     main()
