@@ -52,7 +52,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 def main():
-    bot_token = os.environ.get("7946706520:AAHxnfqdrH6Km7QP-AnM3xYwEcZzvKaCJN8")
+    bot_token = os.environ.get("7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s")
     application = Application.builder().token(bot_token).build()
 
     conv_handler = ConversationHandler(
