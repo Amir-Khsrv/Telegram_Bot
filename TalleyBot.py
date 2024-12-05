@@ -95,8 +95,10 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 def main() -> None:
-    application = Application.builder().token("7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s").build()
+    # Initialize the Telegram bot application
+    application = Application.builder().token("YOUR_BOT_TOKEN").build()
 
+    # Define the conversation handler
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
         states={
@@ -108,11 +110,13 @@ def main() -> None:
 
     application.add_handler(conv_handler)
 
+
     # Use polling instead of webhook
-    application.run_polling()
+ application.run_polling()
 
 if __name__ == '__main__':
     main()
+
 
 from flask import Flask
 
@@ -123,5 +127,6 @@ def home():
     return "Bot is running!"
 
 if __name__ == '__main__':
+    # Run the Flask app (though it's not needed for polling)
     port = int(os.environ.get("PORT", 5000))  # Default to port 5000 if PORT is not set
     app.run(host='0.0.0.0', port=port)
