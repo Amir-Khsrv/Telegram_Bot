@@ -1,15 +1,7 @@
-# Secure token with environment variable
 import os
-import json
 from telegram import Update, ReplyKeyboardMarkup
-from telegram.ext import (
-    Application,
-    CommandHandler,
-    MessageHandler,
-    filters,
-    ConversationHandler,
-    ContextTypes,
-)
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, ConversationHandler, ContextTypes
+import json
 
 # Define states for the conversation
 ASK_NAME, CHOOSE_SPECIALTY = range(2)
@@ -52,7 +44,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 def main():
-    bot_token = "7248777740:AAFm2tNqMibOeXz48I4ICyE8OEJgWt5v_9s"
+    bot_token = os.getenv('TELEGRAM_BOT_TOKEN')  # Use environment variable for the bot token
     application = Application.builder().token(bot_token).build()
 
     conv_handler = ConversationHandler(
@@ -65,7 +57,9 @@ def main():
     )
 
     application.add_handler(conv_handler)
-    application.run_polling()
+
+    port = os.getenv('PORT', 5000)  # Use the PORT environment variable, default to 5000
+    application.run_polling(allowed_updates=Update.ALL_TYPES, port=int(port))
 
 if __name__ == '__main__':
     main()
